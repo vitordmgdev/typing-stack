@@ -1,4 +1,7 @@
-import { TypingPage } from "./pages/TypingPage/TypingPage"
+import { TypingPage } from "./pages/TypingPage/TypingPage";
+import "./styles/App.css";
+
+
 function App() {
 
 

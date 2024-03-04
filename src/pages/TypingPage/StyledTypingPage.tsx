@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
-export const StyledTypingPage = styled.div`
+const StyledTypingPage = styled.div`
     
 `
+
+export default StyledTypingPage;

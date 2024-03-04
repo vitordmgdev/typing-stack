@@ -1,24 +1,17 @@
-import { StyledTypingPage } from "./StyledTypingPage";
-import api from "../../Api";
-import { useEffect } from "react";
+//import getApi from "../../Api";
+import TypingContainer from "../../components/TypingContainer/TypingContainer";
+import StyledTypingPage from "./StyledTypingPage";
+
 
 export const TypingPage = () => {
-
-    useEffect(() => {
-        api.get('teste').then(res =>{
-            console.log(res.data)
-        })
-    }, [])
-
+    
+    //getApi()
     
     return(
         <>
             <StyledTypingPage>
-                
-            </StyledTypingPage>
-                <button>TESTE</button>
-                
-            
+                <TypingContainer />
+            </StyledTypingPage>            
         </>
     )
 }

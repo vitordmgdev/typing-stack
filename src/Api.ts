@@ -1,6 +1,9 @@
-import react from 'react';
-import axios from 'axios';
 
-export default axios.create({
-    baseURL: `http://localhost:4000/`
-})
+
+/* const url = "http://localhost:4000/";
+async function getApi(){
+    const response = await axios.get(url)
+    console.log(response.data)
+}   
+
+export default getApi; */
