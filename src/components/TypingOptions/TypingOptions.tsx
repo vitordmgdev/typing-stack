@@ -1,8 +1,6 @@
-import { BiInfinite } from "react-icons/bi";
 import { RiTimerFlashFill } from "react-icons/ri";
 import { IoIosColorPalette } from "react-icons/io";
 import { FaGear } from "react-icons/fa6";
-import { useState } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`

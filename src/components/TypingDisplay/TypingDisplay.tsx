@@ -6,7 +6,8 @@ import WrittenWords from "../WrittenWords/StyledWrittenWords.ts";
 import { v4 as uuidv4} from 'uuid';
 
 const TypingDisplay = () => {
-    const [ valuesArray, setValuesArray] = useState(['palavra1','palavra2','palavra3','palavra4','palavra5']); //palavritas a serem escritas.
+    /* const [ valuesArray, setValuesArray] = useState<any>(['palavra1','palavra2','palavra3','palavra4','palavra5']); */ //palavritas a serem escritas.
+    const valuesArray = ['palavra1','palavra2','palavra3','palavra4','palavra5']
 
     const [ inputValue, setInputValue ] = useState<string>(""); //Input de digitação, e é enviada para o renderTyping para fazer a verificação.
 
@@ -15,9 +16,7 @@ const TypingDisplay = () => {
 
     const [ letterIndex, setLetterIndex ] = useState<number>(0); //Index da letra da palavra a ser digitada.
     const [ lettersArray, setLettersArray ] = useState<JSX.Element[]>([]); //Array de letras.
-    const [ writtenWords, setWrittenWords ] = useState([] as JSX.Element[])
-
-    const [ wrongInterator, setWrongInterator ] = useState<number>(0); //Vai somar oque o usuário errou.
+    /* const [ writtenWords, setWrittenWords ] = useState([] as JSX.Element[]) */
 
     useEffect(() => {
         
@@ -60,9 +59,9 @@ const TypingDisplay = () => {
         <>
             <StyledTypingDisplay>
                 <WrittenWords>
-                    {writtenWords.map((letter) => {
+                    {/* {writtenWords.map((letter) => {
                         return letter
-                    })}
+                    })} */}
                 </WrittenWords>
                 <StyledTypingWord>{/* Input de Digitação */}
                     <input type="text" onChange={(e) => setInputValue(e.target.value)} value={inputValue} maxLength={1}/> 
