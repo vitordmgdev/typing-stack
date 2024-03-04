@@ -1,6 +1,8 @@
 import { RiTimerFlashFill } from "react-icons/ri";
 import { IoIosColorPalette } from "react-icons/io";
 import { FaGear } from "react-icons/fa6";
+import { AiFillSound  } from "react-icons/ai";
+import { FaBookBookmark } from "react-icons/fa6";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -44,7 +46,7 @@ const StyledTypingOptions = styled.div`
     border-radius: 5px;
     overflow: hidden;
     bottom: 0px;
-    
+    transform: translateY(-30px);
     border: 1px solid #303030;
     transition: .3s;
     padding: 5px;
@@ -60,12 +62,12 @@ const TypingOptions = () => {
                 <span>tempo</span>
             </Button>
             <Button>
-                <IoIosColorPalette />
-                <span>estilo</span>
+                <FaBookBookmark />
+                <span>palavras</span>
             </Button>
             <Button>
                 <FaGear />
-                <span>geração</span>
+                <span>configurações</span>
             </Button>
             
         </StyledTypingOptions>
