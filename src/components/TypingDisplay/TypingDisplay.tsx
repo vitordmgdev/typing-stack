@@ -1,7 +1,29 @@
-
 import { useRef, useState, useEffect } from "react";
 import StyledTypingDisplay from "./StyledTypingDisplay";
 import { isCorrectKey } from "../../utils/verifyTyping/verifyTyping";
+import styled from "styled-components";
+import './textCursor.scss'
+
+interface CursorProps{
+    positionright?: number | any;
+    positiontop?: number | any;
+}
+
+const Cursor = styled.div<CursorProps>`
+    position: absolute;
+    left: calc(${(props) => props.positionright}px);
+    top: calc(${(props) => props.positiontop}px - 64px);
+    width: 1px;
+    height: 1em;
+    border: 1px solid white;
+    transition: .3s;
+    z-index: 2;
+    background-color: #bdbdbd;
+    mix-blend-mode: difference;
+    
+`   
+
+
 const TypingDisplay = () => {
 
     /* 
@@ -11,18 +33,18 @@ const TypingDisplay = () => {
         4 [ currentLetter, setCurrentLetter ] -> Armazena a letra atual do array.
     */
     
-    const textArr = ["cadeira", "maçã", "lápis", "sol", "pássaro","abacaxi", "banana", "cachorro", "dado", "elefante", "foca", "girafa", "hipopótamo", "igreja", "jacaré",
-    "kiwi", "leão", "macaco", "navio", "orelha", "pato", "queijo", "rato", "sapato", "tigre",
-    "uva", "vaca", "waffle", "xícara", "iogurte", "zebra", "ovelha", "laranja", "melancia", "peixe"];
+    const textArr = ["cadeira", "maçã", "lápis", "sol", "pássaro","abacaxi"];
     const textTypeable = textArr.join(" ").split("");
     
     const [ userType, setUserType ] = useState<string>("");
     const [ eventKeyCode, setEventKeyCode ] = useState<number>(0);
     const [ currentDigit, setCurrentDigit ] = useState<number>(0);
-    const [ deleteDigit, setDeleteDigit ] = useState<number>(1);
-    const childrenRef = useRef<HTMLDivElement>(null)
-    
+    const childrenRef = useRef<HTMLDivElement>(null);
 
+    const [childrenPositionRight, setChildrenPositionRight] = useState<any>(30)
+    const [childrenPositionTop, setChildrenPositionTop] = useState<any>(null)
+
+     
 
     useEffect(() => {
         const detectKeyDown = (e: KeyboardEvent) => {
@@ -36,24 +58,31 @@ const TypingDisplay = () => {
     }, []);
 
     useEffect(() => {
-        if(isCorrectKey(userType, eventKeyCode)){ 
+        if(isCorrectKey(userType, eventKeyCode) && currentDigit < textTypeable.length){ 
+            
             if(userType === textTypeable[currentDigit]){;
-                console.log(textTypeable[currentDigit]);
                 setCurrentDigit(currentDigit + 1);
                 childrenRef.current?.children[currentDigit].classList.replace("nullKey","rightKey");
                 setEventKeyCode(0);
                 setUserType("");
+
+                setChildrenPositionRight(childrenRef.current?.children[currentDigit].getBoundingClientRect().right)
+                setChildrenPositionTop(childrenRef.current?.children[currentDigit].getBoundingClientRect().top)
             }else{
                 setCurrentDigit(currentDigit + 1);
                 childrenRef.current?.children[currentDigit].classList.replace("nullKey","wrongKey");
                 setEventKeyCode(0);
                 setUserType("");
+
+                setChildrenPositionRight(childrenRef.current?.children[currentDigit].getBoundingClientRect().right)
+                setChildrenPositionTop(childrenRef.current?.children[currentDigit].getBoundingClientRect().top)
             }
         }
     }, [userType])
 
     return(
         <>
+            <Cursor positionright={childrenPositionRight} positiontop={childrenPositionTop}></Cursor>
             <StyledTypingDisplay ref={childrenRef}>
                     {
                         textTypeable.map((letter, index) => {
