@@ -11,7 +11,9 @@ const TypingDisplay = () => {
         4 [ currentLetter, setCurrentLetter ] -> Armazena a letra atual do array.
     */
     
-    const textArr = ["cadeira", "maçã", "lápis", "sol", "pássaro"];
+    const textArr = ["cadeira", "maçã", "lápis", "sol", "pássaro","abacaxi", "banana", "cachorro", "dado", "elefante", "foca", "girafa", "hipopótamo", "igreja", "jacaré",
+    "kiwi", "leão", "macaco", "navio", "orelha", "pato", "queijo", "rato", "sapato", "tigre",
+    "uva", "vaca", "waffle", "xícara", "iogurte", "zebra", "ovelha", "laranja", "melancia", "peixe"];
     const textTypeable = textArr.join(" ").split("");
     
     const [ userType, setUserType ] = useState<string>("");
