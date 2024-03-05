@@ -1,7 +1,7 @@
 import { RiTimerFlashFill } from "react-icons/ri";
-import { IoIosColorPalette } from "react-icons/io";
+
 import { FaGear } from "react-icons/fa6";
-import { AiFillSound  } from "react-icons/ai";
+
 import { FaBookBookmark } from "react-icons/fa6";
 import styled from "styled-components";
 
