@@ -4,8 +4,7 @@ import StyledTypingPage from "./StyledTypingPage";
 
 
 export const TypingPage = () => {
-    
-    //getApi()
+
     
     return(
         <>

@@ -18,7 +18,7 @@ const StyledTypingDisplay = styled.div`
             color: #bdbdbd;
         }
         &.wrongKey{
-            color: #ff7878;
+            color: #ff9797;
         }
     }
 `
